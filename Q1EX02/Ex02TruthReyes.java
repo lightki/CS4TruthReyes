@@ -1,19 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package ex02truthreyes;
 
 /**
  *
- * @author USER
+ * @FIONA REYES
  */
 import java.util.Scanner;
+
 public class Ex02TruthReyes {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
@@ -23,23 +17,24 @@ public class Ex02TruthReyes {
         int min = 1;
         int guesses = 3;
       
+        // runs the game atleast once 
         do {
             System.out.print("\nWelcome to Higher or Lower! What will you do?\n"
                 + "- Start game\n"
                 + "- Change settings\n"
                 + "- End application\n");
         
-            response = sc.nextLine();
+            response = sc.nextLine(); 
             
             switch(response){
             
-                case "Start game":
-
-                    do{    
+                case "Start game": 
+                       
+                    do{ // The game itself will run atleast once until the user entered an invalid input or entered "n" which will consequently exit the game
 
                         int random = (int) Math.floor(Math.random()*range) + min;
 
-                        for (int i = guesses; i > 0; i = i-1){
+                        for (int i = guesses; i > 0; i = i-1){ // for as long as the user still has guesses, the game will run, else the user loses.
 
                                 System.out.printf("You have %d guess(es) left. What is your guess? ", i);
                                 int guess = Integer.parseInt(sc.nextLine());
@@ -65,15 +60,13 @@ public class Ex02TruthReyes {
                                     }
                                 }
                             }
-                        System.out.println("\nDo you wanna play again? (y/n)");
+                        System.out.println("\nDo you wanna play again? (y/n)"); // option for the user to play or again or not
                         repeat = sc.nextLine();
                     } while (repeat.equalsIgnoreCase("y"));   
 
-                    System.out.println("Thanks for playing!");
-
                     break;
 
-                case "Change settings":
+                case "Change settings": // option for the user to change the values of the limits of the random number and the number of guesses.
                     System.out.println("What is the lower limit of the random number? " + min); 
                     System.out.println("What is the upper limit of the random number? " + range);
                     System.out.println ("How many guesses are allowed? " + guesses);
@@ -92,7 +85,7 @@ public class Ex02TruthReyes {
                     break;
 
                 }  
-        } while (!(response.equalsIgnoreCase("End application")));
+        } while (!(response.equalsIgnoreCase("End application"))); // the game will exit when the user entered "End application"
         
         System.out.println("Thank you for playing!");
     }
